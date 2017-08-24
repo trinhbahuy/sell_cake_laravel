@@ -17,12 +17,12 @@
 
             <div class="row">
               @foreach ($sanpham as $product)
-              <div class="col-sm-3">
-                <div class="single-item">
-                  <div class="single-item-header">
-                    <a href="product.html"><img src="image/product/{{ $product->image }}" alt=""></a>
+              <div class="col-sm-3" style="padding-top:20px">
+                <div class="single-item" >
+                  <div class="single-item-header" style="height: 200px">
+                    <a href="product.html " ><img src="image/product/{{ $product->image }}" alt=""></a>
                   </div>
-                  <div class="single-item-body">
+                  <div class="single-item-body" >
                     <p class="single-item-title">{{ $product->name }}</p>
                     <p class="single-item-price">
                       <span>{{ $product->unit_price }} VNĐ</span>
@@ -36,10 +36,10 @@
                 </div>
               </div>
               @endforeach
-              <div style="margin: auto">
-              {{ $sanpham->links() }}
             </div>
-            </div>
+            <div style="width:100%; margin:0 auto">
+            {{ $sanpham->links() }}
+          </div>
           </div> <!-- .beta-products-list -->
 
           <div class="space50">&nbsp;</div>

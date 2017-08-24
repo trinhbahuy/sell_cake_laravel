@@ -9,7 +9,7 @@ use App\ProductType;
 class PageController extends Controller
 {
   public function trangchu(){
-    $sanpham = Product::paginate(4);
+    $sanpham = Product::paginate(8);
     return view('pages.trangchu',['sanpham'=>$sanpham]);
   }
 }
