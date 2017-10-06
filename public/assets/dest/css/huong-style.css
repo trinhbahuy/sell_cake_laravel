@@ -32,3 +32,9 @@
   width:100%;
   height:100%;
 }
+
+.pagination{
+    width: 30%;
+    margin: 20px auto ;
+    display: block !important;
+}

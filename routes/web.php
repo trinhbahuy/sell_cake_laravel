@@ -11,4 +11,11 @@
 |
 */
 
-Route::get('/', 'PageController@trangchu');
+Route::get('trangchu', 'PageController@trangchu');
+Route::get('sanpham/{id}', 'PageController@sanpham');
+Route::get('about','PageController@about');
+Route::get('contact','PageController@contact');
+Route::get('product/{id}','PageController@product');
+Route::get('details/{id}','PageController@details');
+Route::get('cart','PageController@cart');
+Route::get('remove/{rowId}','PageController@remove');
