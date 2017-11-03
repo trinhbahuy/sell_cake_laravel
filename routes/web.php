@@ -19,3 +19,5 @@ Route::get('product/{id}','PageController@product');
 Route::get('details/{id}','PageController@details');
 Route::get('cart','PageController@cart');
 Route::get('remove/{rowId}','PageController@remove');
+Route::get('checkout','PageController@checkView');
+Route::post('checkout','PageController@checkOut');

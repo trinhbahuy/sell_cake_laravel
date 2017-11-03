@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductType;
 use App\Slide;
+use App\Customer;
+use App\Bill;
 use Cart;
 
 class PageController extends Controller
@@ -49,15 +51,33 @@ class PageController extends Controller
 
   public function cart(){
       $content = Cart::content();
-      $total = 0;
-      foreach($content as $value){
-          $total += ($value->qty)*($value->price);
-      }
-      return view('pages.cart',['content'=>$content,'total'=>$total]);
+      $total = Cart::subtotal(false);
+      return view('pages.cart',['content'=>$content, 'total'=>$total]);
   }
 
   public function remove($rowId){
       Cart::remove($rowId);
       return redirect('cart');
+  }
+
+  public function checkView(){
+      return view('pages.checkout');
+  }
+
+  public function checkOut(Request $request){
+      $customer = new Customer;
+      $customer->name = $request->name;
+      $customer->address = $request->address;
+      $customer->email = $request->email;
+      $customer->phone_number = $request->phone;
+      $customer->save();
+
+      $bill = new Bill;
+      $bill->id_customer = $customer->id;
+      $bill->date_order = Date('Y-m-d') ;
+      $bill->total = Cart::subtotal(false);
+      $bill->payment = $request->payment_method;
+      $bill->save();
+      return redirect('trangchu');
   }
 }
