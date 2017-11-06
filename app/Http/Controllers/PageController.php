@@ -8,6 +8,7 @@ use App\ProductType;
 use App\Slide;
 use App\Customer;
 use App\Bill;
+use App\BillDetails;
 use Cart;
 
 class PageController extends Controller
@@ -78,6 +79,15 @@ class PageController extends Controller
       $bill->total = Cart::subtotal(false);
       $bill->payment = $request->payment_method;
       $bill->save();
+
+      foreach (Cart::content() as $product) {
+          $detail = new BillDetails;
+          $detail->id_bill = $bill->id;
+          $detail->id_product = $product->id;
+          $detail->quantity = $product->qty;
+          $detail->unit_price = $product->price;
+          $detail->save();
+      }
       return redirect('trangchu');
   }
 }
