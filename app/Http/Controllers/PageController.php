@@ -90,4 +90,20 @@ class PageController extends Controller
       }
       return redirect('trangchu');
   }
+  public function register(){
+    return view('pages.register');
+  }
+  public function postRegister(Request $req){
+      $this -> validate($req,
+        [
+          'email'=>'require|min:6|max:30|email',
+          'full_name'=>'require|min:6|max:30',
+          'address' => 'require|min:6|max:30',
+          'passwrod' => 'require|min:3|max15',
+          're_password' => 'require|same:passwrod'
+        ],
+        [
+
+        ]);
+  }
 }

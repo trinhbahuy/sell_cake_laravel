@@ -21,6 +21,8 @@ Route::get('cart','PageController@cart');
 Route::get('remove/{rowId}','PageController@remove');
 Route::get('checkout','PageController@checkView');
 Route::post('checkout','PageController@checkOut');
+Route::get('register','PageController@register')->name('register');
+route::post('register',['as'=>'login','uses'=>'PageController@postRegister']);
 
 ################ PAGE - ADMIN ###########################################
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
