@@ -10,6 +10,8 @@ use App\Customer;
 use App\Bill;
 use App\BillDetails;
 use Cart;
+use Hash;
+use Auth;
 
 class PageController extends Controller
 {
@@ -90,20 +92,73 @@ class PageController extends Controller
       }
       return redirect('trangchu');
   }
+  //////////// REGISTER-LOGIN-LOGOUT /////////
   public function register(){
     return view('pages.register');
   }
-  public function postRegister(Request $req){
+  public function postRegister(Request $req)
+  {
       $this -> validate($req,
         [
           'email'=>'require|min:6|max:30|email',
           'full_name'=>'require|min:6|max:30',
           'address' => 'require|min:6|max:30',
-          'passwrod' => 'require|min:3|max15',
-          're_password' => 'require|same:passwrod'
+          'password' => 'require|min:3|max:30',
+          're_password' => 'require|same:passwrod',
+          'phone'=>'require'
         ],
         [
-
+          'email.require' =>'Vui lòng nhập email',
+          'email.min'=>'Mật khẩu ít nhất 6 ký tự',
+          'email.max'=>'Mật khẩu tối đa  30 ký tự',
+          'full_name.require'=>'Vui lòng nhập họ tên',
+          'full_name.min'=>'Họ tên ít nhât 6 ký tự',
+          'full_name.max'=>'Họ tên tối đa 30 ký tự' ,
+          'password.require'=>'Vui lòng nhập mật khẩu',
+          'password.min'=>'Mật khẩu tối thiểu 6 kí tự',
+          'password.max'=>'Mật khẩu tói đa 15 ký tự',
+          're_password.require'=>'Vui lòng nhập lại mật khẩu',
+          're_password.same'=>'Mật khẩu không trùng nhau'
         ]);
+      $customer = new Customer();
+      $customer->email = $req->email;
+      $customer->name = $req->full_name;
+      $customer->phone_number = $req->phone;
+      $customer->address = $req->address;
+      $customer->password = Hash::make($req->password);
+      $customer->save();
+
+      return redirect()->route('trangchu');
+  }
+
+  public function login(){
+    return view('pages.login');
+  }
+  public function postLogin(Request $req){
+    $this->validate($req,
+      [
+        'email'=> 'require|min:6|max:30|email',
+        'password'=>'require|min:3|max:30'
+
+      ],
+      [
+        'email.email' =>'Định dạng email không đúng',
+        'email.require'=>'Vui lòng nhập email',
+        'email.min'=>'Email tối thiểu 6 ký tự',
+        'email.max'=>'Email tối đa 30 kí tự',
+        'password.require'=>'Vui lòng nhập mật khẩu',
+        'password.min'=>'Mật khẩu khong đúng',
+        'password.max'=>'Mật khẩu không đúng'
+      ]);
+    $cre = array(['email' => $req->email , 'password' => $req->password]);
+    if(Auth::guard('customer')->attempt($cre)){
+      return redirect()->route('trangchu');
+    }else{
+      return redirect()->back()->with(['flag'=>'danger','thongbao'=>'Đăng nhập không thành công']);
+    }
+  }
+
+  public function logout(){
+    //// CHƯA VIẾT GÌ.
   }
 }

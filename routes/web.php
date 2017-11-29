@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('trangchu', 'PageController@trangchu');
+Route::get('trangchu', 'PageController@trangchu')->name('trangchu');
 Route::get('sanpham/{id}', 'PageController@sanpham');
 Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
@@ -21,8 +21,15 @@ Route::get('cart','PageController@cart');
 Route::get('remove/{rowId}','PageController@remove');
 Route::get('checkout','PageController@checkView');
 Route::post('checkout','PageController@checkOut');
+
 Route::get('register','PageController@register')->name('register');
-route::post('register',['as'=>'login','uses'=>'PageController@postRegister']);
+Route::post('register',['as'=>'register','uses'=>'PageController@postRegister']);
+
+Route::get('login',['as'=>'login','uses'=>'PageController@login']);
+Route::post('login',['as'=>'login','uses'=>'PageController@postLogin']);
+
+Route::get('logout',['as'=>'logout','uses'=>'PageController@logout']);
+
 
 ################ PAGE - ADMIN ###########################################
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
