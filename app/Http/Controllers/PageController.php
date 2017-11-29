@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Product;
 use App\ProductType;
 use App\Slide;
 use App\Customer;
 use App\Bill;
 use App\BillDetails;
+use App\User;
 use Cart;
-use Hash;
-use Auth;
+
 
 class PageController extends Controller
 {
@@ -98,37 +99,34 @@ class PageController extends Controller
   }
   public function postRegister(Request $req)
   {
-      $this -> validate($req,
+      $this->validate($req,
         [
-          'email'=>'require|min:6|max:30|email',
-          'full_name'=>'require|min:6|max:30',
-          'address' => 'require|min:6|max:30',
-          'password' => 'require|min:3|max:30',
-          're_password' => 'require|same:passwrod',
-          'phone'=>'require'
+          'email'=>'required|min:6|max:30|email',
+          'name'=>'required|min:6|max:30',
+          'password' => 'required|min:6|max:30',
+          're_password' => 'required|same:password',
         ],
         [
-          'email.require' =>'Vui lòng nhập email',
+          'email.required' =>'Vui lòng nhập email',
           'email.min'=>'Mật khẩu ít nhất 6 ký tự',
           'email.max'=>'Mật khẩu tối đa  30 ký tự',
-          'full_name.require'=>'Vui lòng nhập họ tên',
-          'full_name.min'=>'Họ tên ít nhât 6 ký tự',
-          'full_name.max'=>'Họ tên tối đa 30 ký tự' ,
-          'password.require'=>'Vui lòng nhập mật khẩu',
+          'name.required'=>'Vui lòng nhập họ tên',
+          'name.min'=>'Họ tên ít nhât 6 ký tự',
+          'name.max'=>'Họ tên tối đa 30 ký tự' ,
+          'password.required'=>'Vui lòng nhập mật khẩu',
           'password.min'=>'Mật khẩu tối thiểu 6 kí tự',
           'password.max'=>'Mật khẩu tói đa 15 ký tự',
-          're_password.require'=>'Vui lòng nhập lại mật khẩu',
+          're_password.required'=>'Vui lòng nhập lại mật khẩu',
           're_password.same'=>'Mật khẩu không trùng nhau'
         ]);
-      $customer = new Customer();
-      $customer->email = $req->email;
-      $customer->name = $req->full_name;
-      $customer->phone_number = $req->phone;
-      $customer->address = $req->address;
-      $customer->password = Hash::make($req->password);
-      $customer->save();
+      $user = new User;
+      $user->email = $req->email;
+      $user->name = $req->name;
+      $user->role = 0;
+      $user->password = bcrypt($req->password);
+      $user->save();
 
-      return redirect()->route('trangchu');
+      return redirect()->route('login');
   }
 
   public function login(){
@@ -137,21 +135,21 @@ class PageController extends Controller
   public function postLogin(Request $req){
     $this->validate($req,
       [
-        'email'=> 'require|min:6|max:30|email',
-        'password'=>'require|min:3|max:30'
+        'email'=> 'required|min:6|max:30|email',
+        'password'=>'required|min:3|max:30'
 
       ],
       [
         'email.email' =>'Định dạng email không đúng',
-        'email.require'=>'Vui lòng nhập email',
+        'email.required'=>'Vui lòng nhập email',
         'email.min'=>'Email tối thiểu 6 ký tự',
         'email.max'=>'Email tối đa 30 kí tự',
-        'password.require'=>'Vui lòng nhập mật khẩu',
+        'password.required'=>'Vui lòng nhập mật khẩu',
         'password.min'=>'Mật khẩu khong đúng',
         'password.max'=>'Mật khẩu không đúng'
       ]);
-    $cre = array(['email' => $req->email , 'password' => $req->password]);
-    if(Auth::guard('customer')->attempt($cre)){
+    
+    if(Auth::attempt(['email' => $req->email, 'password' => $req->password])){
       return redirect()->route('trangchu');
     }else{
       return redirect()->back()->with(['flag'=>'danger','thongbao'=>'Đăng nhập không thành công']);

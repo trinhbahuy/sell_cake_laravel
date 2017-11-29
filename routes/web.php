@@ -22,8 +22,8 @@ Route::get('remove/{rowId}','PageController@remove');
 Route::get('checkout','PageController@checkView');
 Route::post('checkout','PageController@checkOut');
 
-Route::get('register','PageController@register')->name('register');
-Route::post('register',['as'=>'register','uses'=>'PageController@postRegister']);
+Route::get('register','PageController@register');
+Route::post('register','PageController@postRegister');
 
 Route::get('login',['as'=>'login','uses'=>'PageController@login']);
 Route::post('login',['as'=>'login','uses'=>'PageController@postLogin']);

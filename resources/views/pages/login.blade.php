@@ -25,11 +25,11 @@
 						<div class="space20">&nbsp;</div>
 						<div class="form-block">
 							<label for="email">Email address*</label>
-							<input type="email" id="email" required>
+							<input type="email" name="email" id="email" required>
 						</div>
 						<div class="form-block">
 							<label for="password">Password*</label>
-							<input type="password" id="password" required>
+							<input type="password" name="password" id="password" required>
 						</div>
 						<div class="form-block">
 							<button type="submit" class="btn btn-primary">Register</button>
