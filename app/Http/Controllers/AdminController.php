@@ -82,6 +82,12 @@ class AdminController extends Controller
     public function postEditProduct(Request $req){
         return view('admin.edit_product');
     }
+    /// Xóa sản phẩm
+    public function delProduct($id){
+        $product = Product::find($id);
+        $product -> delete();
+        return redirect()->back()->with('message','Xóa sản phẩm thành công!');
+    }
     ##########################  LOGIN / LOGOUT - ADMIM ##############################################
 
     public function getLogin(){

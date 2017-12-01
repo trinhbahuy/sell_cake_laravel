@@ -5,6 +5,15 @@
   			<h3>Thông tin sản phẩm</h3>
   			<p>Điền thông tin sản phẩm để tìm kiếm:</p>  
   	<input class="form-control" id="myInput" type="text" placeholder="Search..">
+  		@if(session('message'))
+  			<div class="alert alert-success">{{session('message')}}</div>
+  			<script type="text/javascript">
+  				$(document).ready(function(){
+  					window.alert("Xóa sản phẩm thành công !");
+  				});
+  				
+  			</script>
+  		@endif
 		<table class="table table-striped" >
 	    <thead>
 	      <tr>
@@ -30,7 +39,7 @@
 	        <td>{{$sp->unit_price}}</td>
 	        <td>{{$sp->unit}}</td>
 	        <td><a href="edit/{{$sp->id}}"><span class="glyphicon glyphicon-edit"></span></a></td>
-	        <td><a href=""><span class="glyphicon glyphicon-trash"></span></a></td>
+	        <td><a href="admin/delete/{{$sp->id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
 	      </tr>
 	      @endforeach
 	    </tbody>

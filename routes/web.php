@@ -40,6 +40,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 	Route::get('bill_detail/{id}','AdminController@bill_detail');					
 	Route::get('edit',['as'=>'edit','uses'=>'AdminController@getEditProduct']);
 	Route::post('edit',['as'=>'edit','use'=>'AdminController@postEditProduct']);
+	Route::get('delete/{id}',['as'=>'delete()','uses'=>'AdminController@delProduct']);
 							
 });
 	

@@ -22,9 +22,8 @@
 	        <td>{{$admin->address}}</td>
 	        <td>{{$admin->phone_number}}</td>
 	      </tr>
-	     
 	    </tbody>
 	  </table>
-	  
+	  <button type="submit" class="btn btn-primary"><a href=""></a>Sửa thông tin</button>
 	  </div>
 @endsection
