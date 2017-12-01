@@ -21,27 +21,26 @@ Route::get('cart','PageController@cart');
 Route::get('remove/{rowId}','PageController@remove');
 Route::get('checkout','PageController@checkView');
 Route::post('checkout','PageController@checkOut');
-
 Route::get('register','PageController@register');
 Route::post('register','PageController@postRegister');
-
 Route::get('login',['as'=>'login','uses'=>'PageController@login']);
 Route::post('login',['as'=>'login','uses'=>'PageController@postLogin']);
-
 Route::get('logout',['as'=>'logout','uses'=>'PageController@logout']);
 
 
 ################ PAGE - ADMIN ###########################################
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
+	Route::get('admin/{id}','AdminController@admin');
+	Route::get('list_admin','AdminController@listAdmin')->name('list_admin');
 	Route::get('khachhang','AdminController@khachhang')->name('khachhang');
 	Route::get('donhang',['as'=>'donhang','uses'=>'AdminController@donhang']);
 	Route::get('sanpham',['as'=>'sanpham','uses'=>'AdminController@sanpham']);	
 	Route::get('add',['as'=>'add','uses'=>'AdminController@getAddProduct']);	
-	Route::post('add',['as'=>'add','uses'=>'AdminController@postAddProduct']);			
+	Route::post('add',['as'=>'add','uses'=>'AdminController@postAddProduct']);
+	Route::get('bill_detail/{id}','AdminController@bill_detail');					
 	Route::get('edit',['as'=>'edit','uses'=>'AdminController@getEditProduct']);
 	Route::post('edit',['as'=>'edit','use'=>'AdminController@postEditProduct']);
-	// Auth::routes();																		  
-	// Route::get('/home', 'HomeController@index')->name('home');							
+							
 });
 	
 Route::get('admin-login',['as'=>'admin-login','uses'=>'AdminController@getLogin']);   			
