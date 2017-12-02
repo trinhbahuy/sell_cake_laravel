@@ -4,30 +4,36 @@
 			<div class="col-md-9">
 			<h2>Sửa thông tin sản phẩm</h2>
   			<h3>Bánh</h3>
-  			
-		<form>
+  		@if(Session('message'))
+        <div class="alert alert-success">{{Session('message')}}</div>
+      @endif
+		<form action="admin/edit/{{$sanpham->id}}" method="post" enctype="multipart/form-data">
+      {{csrf_field()}}
 		<div class="form-group">
     <label for="inputdefault">Tên bánh</label>
-    <input class="form-control" id="inputdefault" type="text" name="name">
+    <input class="form-control" id="inputdefault" type="text" name="name" value="{{$sanpham->name}}">
   </div>
 		  		<div class="form-group">
     <label for="inputdefault">Trạng thái đóng gói</label>
-    <input class="form-control" id="inputdefault" type="text" name="unit">
+    <input class="form-control" id="inputdefault" type="text" name="unit" value="{{$sanpham->unit}}">
+  </div>
+  <div class="form-group">
+    <img src="image/product/{{$sanpham->image}}" width="250px" height="250px">
   </div>
 		  		<div class="form-group">
     <label for="inputdefault">Hình ảnh</label>
-    <input type="file" name="fileToUpload" id="fileToUpload" name="image">
+    <input type="file" name="fileToUpload" id="fileToUpload" name="image" >
   </div>
 		  
 		  		<div class="form-group">
     <label for="inputdefault">Mô tả</label>
-    <input class="form-control" id="inputdefault" type="text" name="description">
+    <input class="form-control" id="inputdefault" type="text" name="description" value="{{$sanpham->description}}">
   </div>
 		  		<div class="form-group">
     <label for="inputdefault">Giá</label>
-    <input class="form-control" id="inputdefault" type="text" name="unit_price">
+    <input class="form-control" id="inputdefault" type="text" name="unit_price" value="{{$sanpham->unit_price}}">
   </div>
-		  <button type="button" class="btn btn-primary">Thêm sản phẩm</button>
+		  <button type="submit" class="btn btn-primary">Cập nhập</button>
 			<button type="reset" class="btn btn-success">Xóa</button>
 		</form>
 		</div>

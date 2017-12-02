@@ -38,10 +38,9 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 	Route::get('add',['as'=>'add','uses'=>'AdminController@getAddProduct']);	
 	Route::post('add',['as'=>'add','uses'=>'AdminController@postAddProduct']);
 	Route::get('bill_detail/{id}','AdminController@bill_detail');					
-	Route::get('edit',['as'=>'edit','uses'=>'AdminController@getEditProduct']);
-	Route::post('edit',['as'=>'edit','use'=>'AdminController@postEditProduct']);
+	Route::get('edit/{id}',['as'=>'edit','uses'=>'AdminController@getEditProduct']);
+	Route::post('edit/{id}',['as'=>'edit','uses'=>'AdminController@postEditProduct']);
 	Route::get('delete/{id}',['as'=>'delete()','uses'=>'AdminController@delProduct']);
-							
 });
 	
 Route::get('admin-login',['as'=>'admin-login','uses'=>'AdminController@getLogin']);   			

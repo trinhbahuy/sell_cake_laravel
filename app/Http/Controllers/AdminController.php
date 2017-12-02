@@ -34,7 +34,8 @@ class AdminController extends Controller
     }
     public function bill_detail($id){
         $bill_detail = BillDetails::where('id_bill',$id)->get();
-         return view('admin.bill_detail',compact('bill_detail'));
+        $product = Product::all();
+         return view('admin.bill_detail',compact('bill_detail','product'));
     }
     public function sanpham(){
         $sanpham = Product::paginate(10);
@@ -75,12 +76,36 @@ class AdminController extends Controller
        return redirect()->back()->with('message','Thêm sản phẩm thành công');
     }
     /// Sửa thông tin sản phẩm
-    public function getEditProduct(){
-        $sanpham = Product::all();
+    public function getEditProduct($id){
+        $sanpham = Product::find($id);
         return view('admin.edit_product',compact('sanpham'));
     }
-    public function postEditProduct(Request $req){
-        return view('admin.edit_product');
+    public function postEditProduct($id,Request $req){
+        $sanpham = Product::find($id);
+        if($req->name != NULL)
+        {
+            $sanpham->name = $req -> name;
+        }
+        if($req->unit != NULL)
+        {
+            $sanpham->unit = $req -> unit;
+        }
+        if($req->hasFile('image'))
+        {
+           $file = $req->file('image'); 
+           $file->move('public/image/product',$file->getClientOriginalName());
+           $product->image = $file->getClientOriginalName();
+        }
+        if($req->description != NULL)
+        {
+            $sanpham -> description = $req ->description;
+        }
+        if($req->unit_price != NULL)
+        {
+            $sanpham->unit_price = $req->unit_price;
+        }
+        $sanpham->update();
+        return redirect()->back()->with('message','Updat thành công');
     }
     /// Xóa sản phẩm
     public function delProduct($id){

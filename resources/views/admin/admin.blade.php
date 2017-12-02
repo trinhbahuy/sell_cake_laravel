@@ -20,10 +20,10 @@
 	        <td>{{$admin->full_name}}</td>
 	        <td>{{$admin->email}}</td>
 	        <td>{{$admin->address}}</td>
-	        <td>{{$admin->phone_number}}</td>
+	        <td>{{$admin->phone}}</td>
 	      </tr>
 	    </tbody>
 	  </table>
-	  <button type="submit" class="btn btn-primary"><a href=""></a>Sửa thông tin</button>
+	  <!-- <button type="submit" class="btn btn-primary"><a href=""></a>Sửa thông tin</button> -->
 	  </div>
 @endsection

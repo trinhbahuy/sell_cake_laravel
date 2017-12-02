@@ -38,7 +38,7 @@
 	        <td>{{$sp->description}}</td>
 	        <td>{{$sp->unit_price}}</td>
 	        <td>{{$sp->unit}}</td>
-	        <td><a href="edit/{{$sp->id}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+	        <td><a href="admin/edit/{{$sp->id}}"><span class="glyphicon glyphicon-edit"></span></a></td>
 	        <td><a href="admin/delete/{{$sp->id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
 	      </tr>
 	      @endforeach

@@ -7,7 +7,6 @@
 	    <thead>
 	      <tr>
 	        <th>STT</th>
-	        <th>Mã hóa đơn</th>
 	        <th>Tên sản phẩm</th>
 	        <th>Số lượng</th>
 	        <th>Giá sản phẩm</th>
@@ -16,15 +15,14 @@
 	    </thead>
 	    <tbody id="myTable">
 	    	@foreach($bill_detail  as $bd)
-	      <tr>
-	        <td>{{$bd->id}}</td>
+	      	<tr>
 	        <td>{{$bd->id_bill}}</td>
-	        <td></td>
-	        <td>{{$bd->email}}</td>
+	        <td>{{$bd->product->name}}</td>
+	        <td>{{$bd->quantity}}</td>
 	        <td>{{$bd->unit_price}}</td>
 	        <td>{{$bd->created_at}}</td>
-	      </tr>
-	     @endforeach
+	      	</tr>
+	     	@endforeach
 	    </tbody>
 	  </table>
 	  

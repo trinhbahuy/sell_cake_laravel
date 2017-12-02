@@ -2,7 +2,7 @@
 @section('content')
 <div class="col-md-9">
 			<h2>Admin</h2>
-  			<h3>Thông tin cá nhân</h3>
+  			<h3>Danh sách quản trị viên</h3>
 		<table class="table table-striped" >
 	    <thead>
 	      <tr>
@@ -21,7 +21,7 @@
 	        <td>{{$ad->full_name}}</td>
 	        <td>{{$ad->email}}</td>
 	        <td>{{$ad->address}}</td>
-	        <td>{{$ad->phone_number}}</td>
+	        <td>{{$ad->phone}}</td>
 	      </tr>
 	      @endif
 	     @endforeach
