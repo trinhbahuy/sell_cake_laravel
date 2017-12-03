@@ -22,7 +22,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       @if(Auth::check())
-      <li><a href="admin/admin/{{Auth::User()->id}}"><span class="glyphicon glyphicon-user"></span>{{Auth::User()->full_name}}</a></li>
+      <li><a href="admin/admin/{{Auth::User()->id}}"><span class="glyphicon glyphicon-user"></span>{{Auth::User()->name}}</a></li>
       <li><a href="{{route('admin-logout')}}"><span class="glyphicon glyphicon-log-in"></span> Log-out</a></li>
       @endif
     </ul>

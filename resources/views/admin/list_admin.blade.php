@@ -9,8 +9,6 @@
 	        <th>ID</th>
 	        <th>Tên admin</th>
 	        <th>Email</th>
-	        <th>Địa chỉ</th>
-	        <th>Số điện thoại</th>
 	      </tr>
 	    </thead>
 	    <tbody id="myTable">
@@ -18,10 +16,8 @@
 	    	@if($ad->role == 1)
 	      <tr>
 	        <td>{{$ad->id}}</td>
-	        <td>{{$ad->full_name}}</td>
+	        <td>{{$ad->name}}</td>
 	        <td>{{$ad->email}}</td>
-	        <td>{{$ad->address}}</td>
-	        <td>{{$ad->phone}}</td>
 	      </tr>
 	      @endif
 	     @endforeach

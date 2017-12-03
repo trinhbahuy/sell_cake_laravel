@@ -9,18 +9,14 @@
 	        <th>ID</th>
 	        <th>Tên admin</th>
 	        <th>Email</th>
-	        <th>Địa chỉ</th>
-	        <th>Số điện thoại</th>
 	      </tr>
 	    </thead>
 	    <tbody id="myTable">
 	    	
 	      <tr>
 	        <td>{{$admin->id}}</td>
-	        <td>{{$admin->full_name}}</td>
+	        <td>{{$admin->name}}</td>
 	        <td>{{$admin->email}}</td>
-	        <td>{{$admin->address}}</td>
-	        <td>{{$admin->phone}}</td>
 	      </tr>
 	    </tbody>
 	  </table>
