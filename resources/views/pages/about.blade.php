@@ -159,7 +159,7 @@
           <div class="media-body beta-person-body">
             <h5>Trịnh Bá Huy</h5>
             <p class="font-large">Founder</p>
-            <p>Nemo enim ipsam voluptatem quia voluptas sit asatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque por quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam.</p>
+            <p>Đẹp trai, tài giỏi, perfect.</p>
             <a href="single_type_gallery.html">View projects <i class="fa fa-chevron-right"></i></a>
           </div>
         </div>
@@ -179,7 +179,7 @@
           <div class="beta-person-body">
             <h5>Trịnh Bá Huy</h5>
             <p class="font-large">Web developer</p>
-            <p>Nemo enims voluptatem quia volupas sit aspe aut odit aut fugit, sed quia consequuntur magni dolores.</p>
+            <p> thiết kế giao diện, giỏ hàng, cơ sở dữ liệu</p>
             <a href="single_type_gallery.html">View projects <i class="fa fa-chevron-right"></i></a>
           </div>
         </div>
@@ -192,7 +192,7 @@
           <div class="beta-person-body">
             <h5>Phạm Hùng Sơn</h5>
             <p class="font-large">Web developer</p>
-            <p>Nemo enims voluptatem quia volupas sit aspe aut odit aut fugit, sed quia consequuntur magni dolores.</p>
+            <p>thiết kế trang quản trị</p>
             <a href="single_type_gallery.html">View projects <i class="fa fa-chevron-right"></i></a>
           </div>
         </div>
@@ -205,7 +205,7 @@
           <div class="beta-person-body">
             <h5>Phạm Sỹ Bằng</h5>
             <p class="font-large">Web developer</p>
-            <p>Nemo enims voluptatem quia volupas sit aspe aut odit aut fugit, sed quia consequuntur magni dolores.</p>
+            <p>thiết kế cơ sở dữ liệu, thiết kế UX người dùng</p>
             <a href="single_type_gallery.html">View projects <i class="fa fa-chevron-right"></i></a>
           </div>
         </div>
@@ -218,7 +218,7 @@
           <div class="beta-person-body">
             <h5>Vũ Mạnh Khiêu</h5>
             <p class="font-large">Web developer</p>
-            <p>Nemo enims voluptatem quia volupas sit aspe aut odit aut fugit, sed quia consequuntur magni dolores.</p>
+            <p>thiết kế giao diện, làm báo cáo.</p>
             <a href="single_type_gallery.html">View projects <i class="fa fa-chevron-right"></i></a>
           </div>
         </div>

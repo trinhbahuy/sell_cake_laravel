@@ -25,7 +25,7 @@ Route::get('register','PageController@register');
 Route::post('register','PageController@postRegister');
 Route::get('login',['as'=>'login','uses'=>'PageController@login']);
 Route::post('login',['as'=>'login','uses'=>'PageController@postLogin']);
-Route::get('logout',['as'=>'logout','uses'=>'PageController@logout']);
+Route::get('logout','PageController@logout');
 
 
 ################ PAGE - ADMIN ###########################################

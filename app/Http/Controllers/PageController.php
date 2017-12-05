@@ -157,6 +157,7 @@ class PageController extends Controller
   }
 
   public function logout(){
-    //// CHƯA VIẾT GÌ.
+    Auth::logout();
+    return redirect('trangchu');
   }
 }
