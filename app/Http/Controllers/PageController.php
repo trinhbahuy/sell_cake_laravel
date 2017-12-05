@@ -30,9 +30,13 @@ class PageController extends Controller
   {
     $search = Product::where('name','like','%'.$req->search.'%')
                         ->orwhere('unit_price','like','%'.$req->search.'%')
+                        // ->join('ProductType','ProductType.id','=','Product.id_type')
+                        // ->orwhere('ProductType.name','like','%'.$req->search.'%')
                         ->paginate(6);
     $count  = Product::where('name','like','%'.$req->search.'%')
                         ->orwhere('unit_price','like','%'.$req->search.'%')
+                        // ->join('ProductType','ProductType.id','=','Product.id_type')
+                        // ->orwhere('ProductType.name','like','%'.$req->search.'%')
                         ->get();
     return view('pages.search',compact('search','count'));
   }
@@ -168,10 +172,6 @@ class PageController extends Controller
 
   public function logout(){
     Auth::logout();
-<<<<<<< HEAD
     return  redirect('trangchu');
-=======
-    return redirect('trangchu');
->>>>>>> 211fd7dcdfa654cd479321bd5d2cea3c8b6b5110
   }
 }
