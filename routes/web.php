@@ -27,6 +27,10 @@ Route::post('register','PageController@postRegister');
 Route::get('login',['as'=>'login','uses'=>'PageController@login']);
 Route::post('login',['as'=>'login','uses'=>'PageController@postLogin']);
 Route::get('logout','PageController@logout');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 211fd7dcdfa654cd479321bd5d2cea3c8b6b5110
 
 ################ PAGE - ADMIN ###########################################
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){

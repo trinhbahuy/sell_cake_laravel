@@ -13,10 +13,11 @@
          @if(!Auth::check())
             <li><a href="register">Đăng kí</a></li>
             <li><a href="{{route('login')}}">Đăng nhập</a></li>
- +        @else
- +          <li><a href="#"><i class="fa fa-user"></i>{{ Auth::user()->name }}</a></li>
- +          <li><a href="logout">Đăng xuất</a></li>
- +        @endif 
+        @else
+            <li><a href="#"><i class="fa fa-user"></i>{{ Auth::user()->name }}</a></li>
+            <li><a href="logout">Đăng xuất</a></li>
+        @endif 
+        
         </ul>
       </div>
       <div class="clearfix"></div>

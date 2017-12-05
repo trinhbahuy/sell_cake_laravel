@@ -168,6 +168,10 @@ class PageController extends Controller
 
   public function logout(){
     Auth::logout();
+<<<<<<< HEAD
     return  redirect('trangchu');
+=======
+    return redirect('trangchu');
+>>>>>>> 211fd7dcdfa654cd479321bd5d2cea3c8b6b5110
   }
 }
