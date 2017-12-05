@@ -8,7 +8,7 @@
 		<table class="table table-striped" >
 	    <thead>
 	      <tr>
-	        <th>ID</th>
+	        <th>STT</th>
 	        <th>Khách Hàng</th>
 	        <th>Ngày đặt hàng</th>
 	        <th>Tổng tiền</th>
@@ -20,7 +20,7 @@
 	    	@foreach($donhang as $dh)
 	    	
 	      	<tr>
-	        <td>{{$dh->id}}</td>
+	        <td>{{$i++}}</td>
 	        
 	        <td>{{$dh->customer->name}}</td>
 	        

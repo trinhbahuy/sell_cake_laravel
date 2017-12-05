@@ -17,7 +17,8 @@ class AdminController extends Controller
     /// Hien thi thong tin
     public function khachhang(){
         $khachhang = Customer::all();
-        return view('admin.customer',compact('khachhang'));
+        $i =1;
+        return view('admin.customer',compact('khachhang','i'));
     }
     public function admin($id){
         $admin = User::find($id);
@@ -29,13 +30,15 @@ class AdminController extends Controller
     }
     public function donhang(){
         $donhang = Bill::all();
+        $i =1;
         $khachhang = Customer::all();
-        return view('admin.bill',compact('donhang','khachhang'));
+        return view('admin.bill',compact('donhang','khachhang','i'));
     }
     public function bill_detail($id){
         $bill_detail = BillDetails::where('id_bill',$id)->get();
+        $i = 1;
         $product = Product::all();
-         return view('admin.bill_detail',compact('bill_detail','product'));
+         return view('admin.bill_detail',compact('bill_detail','product','i'));
     }
     public function sanpham(){
         $sanpham = Product::paginate(10);

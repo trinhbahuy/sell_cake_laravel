@@ -26,6 +26,16 @@ class PageController extends Controller
     $noibat = Product::where('top',1)->paginate(4);
     return view('pages.trangchu',['slide'=>$slide, 'sanpham'=>$sanpham,'noibat'=>$noibat]);
   }
+  public function search(Request $req)
+  {
+    $search = Product::where('name','like','%'.$req->search.'%')
+                        ->orwhere('unit_price','like','%'.$req->search.'%')
+                        ->paginate(6);
+    $count  = Product::where('name','like','%'.$req->search.'%')
+                        ->orwhere('unit_price','like','%'.$req->search.'%')
+                        ->get();
+    return view('pages.search',compact('search','count'));
+  }
   public function sanpham($id){
       $type_sp = ProductType::find($id);
       $sanpham = Product::where('id_type', $id)->get();
@@ -157,6 +167,7 @@ class PageController extends Controller
   }
 
   public function logout(){
-    //// CHƯA VIẾT GÌ.
+    Auth::logout();
+    return  redirect('trangchu');
   }
 }

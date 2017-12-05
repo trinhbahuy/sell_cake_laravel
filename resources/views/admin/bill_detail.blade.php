@@ -16,7 +16,7 @@
 	    <tbody id="myTable">
 	    	@foreach($bill_detail  as $bd)
 	      	<tr>
-	        <td>{{$bd->id_bill}}</td>
+	        <td>{{$i++}}</td>
 	        <td>{{$bd->product->name}}</td>
 	        <td>{{$bd->quantity}}</td>
 	        <td>{{$bd->unit_price}}</td>

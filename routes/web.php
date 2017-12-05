@@ -12,6 +12,7 @@
 */
 
 Route::get('trangchu', 'PageController@trangchu')->name('trangchu');
+Route::get('tim-kiem','PageController@search');
 Route::get('sanpham/{id}', 'PageController@sanpham');
 Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
@@ -25,8 +26,7 @@ Route::get('register','PageController@register');
 Route::post('register','PageController@postRegister');
 Route::get('login',['as'=>'login','uses'=>'PageController@login']);
 Route::post('login',['as'=>'login','uses'=>'PageController@postLogin']);
-Route::get('logout',['as'=>'logout','uses'=>'PageController@logout']);
-
+Route::get('logout','PageController@logout');
 
 ################ PAGE - ADMIN ###########################################
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){

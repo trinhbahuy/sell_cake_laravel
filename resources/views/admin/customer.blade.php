@@ -8,7 +8,7 @@
 		<table class="table table-striped" >
 	    <thead>
 	      <tr>
-	        <th>ID</th>
+	        <th>STT</th>
 	        <th>Tên khách hàng</th>
 	        <th>Email</th>
 	        <th>Địa chỉ</th>
@@ -18,7 +18,7 @@
 	    <tbody id="myTable">
 	    	@foreach($khachhang as $kh)
 	      <tr>
-	        <td>{{$kh->id}}</td>
+	        <td>{{$i++}}</td>
 	        <td>{{$kh->name}}</td>
 	        <td>{{$kh->email}}</td>
 	        <td>{{$kh->address}}</td>
