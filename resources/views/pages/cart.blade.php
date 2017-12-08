@@ -18,36 +18,39 @@
         </thead>
         <tbody>
         @foreach($content as $item)
+          <tr> <td colspan="4"> hello <td> </tr>
+          @foreach($item as $items)
           <tr class="cart_item">
             <td class="product-name">
               <div class="media">
-                <img style="width:100px; height:50px;" class="pull-left" src="image/product/{{ $item->options->image }}" alt="ảnh">
+                <img style="width:100px; height:50px;" class="pull-left" src="image/product/{{ $items->options->image }}" alt="ảnh">
                 <div class="media-body">
-                  <p class="font-large table-title">{{ $item->name }}</p>
+                  <p class="font-large table-title">{{ $items->name }}</p>
                   <a class="table-edit" href="#">Edit</a>
                 </div>
               </div>
             </td>
 
             <td class="product-price">
-              <span class="amount">{{ $item->price }}</span>
+              <span class="amount">{{ $items->price }}</span>
             </td>
 
 
             <td class="product-quantity">
               <select name="product-qty" id="product-qty">
-                <option value="{{ $item->qty }}">{{ $item->qty }}</option>
+                <option value="{{ $items->qty }}">{{ $items->qty }}</option>
               </select>
             </td>
 
             <td class="product-subtotal">
-              <span class="amount">{{ $item->qty * $item->price }}</span>
+              <span class="amount">{{ $items->qty * $items->price }}</span>
             </td>
 
             <td class="product-remove">
-              <a href="remove/{{ $item->rowId }}" class="remove" title="Remove this item"><i class="fa fa-trash-o"></i></a>
+              <a href="remove/{{ $items->rowId }}" class="remove" title="Remove this item"><i class="fa fa-trash-o"></i></a>
             </td>
           </tr>
+          @endforeach
         @endforeach
         </tbody>
 

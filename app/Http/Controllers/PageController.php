@@ -66,13 +66,20 @@ class PageController extends Controller
 
   public function product($id){
       $product = Product::find($id);
-      Cart::add(['id'=>$id, 'name'=>$product->name, 'qty'=>1, 'price'=>$product->unit_price,'options'=>['image'=>$product->image]]);
-      return redirect('cart');
+      Cart::add(['id'=>$product->id_type, 'name'=>$product->name, 'qty'=>1, 'price'=>$product->unit_price,'options'=>['image'=>$product->image]]);
+       return redirect('cart');
   }
 
   public function cart(){
-      $content = Cart::content();
+      $content = Cart::content()->groupBy('id');
       $total = Cart::subtotal(false);
+      // foreach ($content as $item) {
+      //   echo print_r($item). "<br>";
+      //   foreach ($item as $items) {
+      //     echo $items->name. "<br>" .$items->options->image. "<br>";
+      //   }
+      // }
+      //dd($content);
       return view('pages.cart',['content'=>$content, 'total'=>$total]);
   }
 
