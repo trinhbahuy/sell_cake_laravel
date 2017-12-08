@@ -18,8 +18,12 @@ Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
 Route::get('product/{id}','PageController@product');
 Route::get('details/{id}','PageController@details');
+
 Route::get('cart','PageController@cart');
 Route::get('remove/{rowId}','PageController@remove');
+Route::get('updatePlus/{rowId}/{qty}', 'PageController@updatePlus');
+Route::get('updateMinus/{rowId}/{qty}', 'PageController@updateMinus');
+
 Route::get('checkout','PageController@checkView');
 Route::post('checkout','PageController@checkOut');
 Route::get('register','PageController@register');

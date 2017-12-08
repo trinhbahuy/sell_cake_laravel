@@ -66,12 +66,12 @@ class PageController extends Controller
 
   public function product($id){
       $product = Product::find($id);
-      Cart::add(['id'=>$product->id_type, 'name'=>$product->name, 'qty'=>1, 'price'=>$product->unit_price,'options'=>['image'=>$product->image]]);
+      Cart::add(['id'=>$id, 'name'=>$product->name, 'qty'=>1, 'price'=>$product->unit_price,'options'=>['image'=>$product->image, 'type'=>$product->id_type]]);
        return redirect('cart');
   }
 
   public function cart(){
-      $content = Cart::content()->groupBy('id');
+      $content = Cart::content()->groupBy('options->type');
       $total = Cart::subtotal(false);
       // foreach ($content as $item) {
       //   echo print_r($item). "<br>";
@@ -81,6 +81,18 @@ class PageController extends Controller
       // }
       //dd($content);
       return view('pages.cart',['content'=>$content, 'total'=>$total]);
+  }
+
+  public function updatePlus($rowId, $qty){
+      $quantity = $qty+1;
+      Cart::update($rowId, $quantity);
+      return redirect('cart');
+  }
+
+  public function updateMinus($rowId, $qty){
+     $quantity = $qty-1;
+      Cart::update($rowId, $quantity);
+      return redirect('cart');
   }
 
   public function remove($rowId){

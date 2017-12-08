@@ -37,6 +37,8 @@
 
 
             <td class="product-quantity">
+              <a href="updatePlus/{{ $items->rowId }}/{{ $items->qty }}"> <button style="width: 40px; height: 25px;">+</button> </a>
+              <a href="updateMinus/{{ $items->rowId }}/{{ $items->qty }}"> <button style="width: 40px; height: 25px;">-</button></a>
               <select name="product-qty" id="product-qty">
                 <option value="{{ $items->qty }}">{{ $items->qty }}</option>
               </select>
