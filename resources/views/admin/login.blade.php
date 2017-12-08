@@ -2,12 +2,14 @@
 <html>
 <head>
 	<title>Login-Admin</title>
+	<base href="{{asset('')}}">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<style type="text/css">
 		.top-buffer { margin-top:50px; }
 	</style>
 </head>
 <body>
+<a href='trangchu'><button class="btn btn-success"> Trang chủ </button> </a>
 	<div class="row top-buffer">
     <div class="col-md-2 col-md-offset-5">
     	<h1>Đăng nhập</h1>
@@ -29,11 +31,12 @@
 	    </div>
 	    <br>
 	    <div>
-	    	<a href="#">Quên mật khẩu? </a><button type="submit" class="btn btn-primary">Đăng nhập</button>	
+	    	<a href="#">Quên mật khẩu? </a><button type="submit" class="btn btn-primary">Đăng nhập</button></a>  		
 	    </div>    
 	  </form>
     </div>
 </div>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
 </html>

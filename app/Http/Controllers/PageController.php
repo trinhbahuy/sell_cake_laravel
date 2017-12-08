@@ -58,7 +58,10 @@ class PageController extends Controller
 
   public function details($id){
       $product = Product::find($id);
-      return view('pages.product',['product'=>$product]);
+      $same_type = Product::where('id_type', $product->id_type)->get()->shuffle()->take(3);
+      $noibat = Product::where('top',1)->take(6)->get();
+      //dd($same_type);
+      return view('pages.details',['product' => $product, 'same_type' => $same_type, 'noibat' => $noibat]);
   }
 
   public function product($id){

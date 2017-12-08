@@ -40,7 +40,7 @@ glyphicon glyphicon-"></span> Đơn hàng</a></li>
     </div>
     @yield('content')
   </div>
-
+<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function(){

@@ -9,6 +9,6 @@ class Product extends Model
     protected $table = "products" ;
 
     public function productType(){
-      return  $this->belongTo('App\ProductType','id_type','id');
+      return  $this->belongsTo('App\ProductType','id_type','id');
 }
 }
