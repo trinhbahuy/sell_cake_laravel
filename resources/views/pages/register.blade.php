@@ -16,6 +16,11 @@
 	
 	<div class="container">
 		<div id="content">
+		@foreach($errors->all() as $error)
+				<div class="alert alert-danger">
+					{{ $error }}
+				</div>
+			@endforeach
 			<form action="register" method="post" class="beta-form-checkout">
 			<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="row">
@@ -32,6 +37,14 @@
 							<input type="text" name="name" id="name" >
 						</div>
 						<div class="form-block">
+							<label for="your_last_name">Address*</label>
+							<input type="text" name="address"  >
+						</div>
+						<div class="form-block">
+							<label for="your_last_name">Phone Number*</label>
+							<input type="text" name="phone_number" >
+						</div>
+						<div class="form-block">
 							<label >Password*</label>
 							<input type="password" name="password" >
 						</div>
@@ -46,11 +59,6 @@
 					<div class="col-sm-3"></div>
 				</div>
 			</form>
-			@foreach($errors->all() as $error)
-				<div class="alert alert-danger">
-					{{ $error }}
-				</div>
-			@endforeach
 		</div> <!-- #content -->
 	</div> <!-- .container -->
 

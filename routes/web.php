@@ -26,6 +26,7 @@ Route::get('updateMinus/{rowId}/{qty}', 'PageController@updateMinus');
 
 Route::get('checkout','PageController@checkView');
 Route::post('checkout','PageController@checkOut');
+Route::get('user_checkout','PageController@checkOut');
 Route::get('register','PageController@register');
 Route::post('register','PageController@postRegister');
 Route::get('login',['as'=>'login','uses'=>'PageController@login']);

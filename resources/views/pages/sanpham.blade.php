@@ -22,7 +22,7 @@
 					<div class="col-sm-3">
 						<ul class="aside-menu">
 						@foreach($tenbanh as $allname)
-							<li><a href="#">{{ $allname->name }}</a></li>
+							<li><a href="details/{{ $allname->id }}">{{ $allname->name }}</a></li>
 						@endforeach
 						</ul>
 					</div>
@@ -44,12 +44,12 @@
 										<div class="single-item-body">
 											<p class="single-item-title">{{ $sp->name }}</p>
 											<p class="single-item-price">
-												<span>{{ $sp->unit_price }}</span>
+												<span>{{ $sp->unit_price }} VND</span>
 											</p>
 										</div>
 										<div class="single-item-caption">
 											<a class="add-to-cart pull-left" href="product/{{ $sp->id }}"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="product.html"> Chi tiết <i class="fa fa-chevron-right"></i></a>
+											<a class="beta-btn primary" href="details/{{ $sp->id }}"> Chi tiết <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
 									</div>

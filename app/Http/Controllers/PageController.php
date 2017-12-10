@@ -105,20 +105,36 @@ class PageController extends Controller
   }
 
   public function checkOut(Request $request){
-      $customer = new Customer;
-      $customer->name = $request->name;
-      $customer->address = $request->address;
-      $customer->email = $request->email;
-      $customer->phone_number = $request->phone;
-      $customer->save();
+    if(Auth::check()){
+        $customer = new Customer;
+        $customer->id_user = Auth::user()->id;
+        $customer->name = Auth::user()->name;
+        $customer->address = Auth::user()->address;
+        $customer->email = Auth::user()->email;
+        $customer->phone_number = Auth::user()->phone_number;
+        $customer->save();
 
-      $bill = new Bill;
-      $bill->id_customer = $customer->id;
-      $bill->date_order = Date('Y-m-d') ;
-      $bill->total = Cart::subtotal(false);
-      $bill->payment = $request->payment_method;
-      $bill->save();
+        $bill = new Bill;
+        $bill->id_customer = $customer->id;
+        $bill->date_order = Date('Y-m-d') ;
+        $bill->total = Cart::subtotal(false);
+        $bill->payment = "home";
+        $bill->save();
+    }else{
+        $customer = new Customer;
+        $customer->name = $request->name;
+        $customer->address = $request->address;
+        $customer->email = $request->email;
+        $customer->phone_number = $request->phone;
+        $customer->save();
 
+        $bill = new Bill;
+        $bill->id_customer = $customer->id;
+        $bill->date_order = Date('Y-m-d') ;
+        $bill->total = Cart::subtotal(false);
+        $bill->payment = $request->payment_method;
+        $bill->save();
+    }
       foreach (Cart::content() as $product) {
           $detail = new BillDetails;
           $detail->id_bill = $bill->id;
@@ -138,6 +154,8 @@ class PageController extends Controller
       $this->validate($req,
         [
           'email'=>'required|min:6|max:30|email',
+          'address'=>'required',
+          'phone_number'=>'required|numeric',
           'name'=>'required|min:6|max:30',
           'password' => 'required|min:6|max:30',
           're_password' => 'required|same:password',
@@ -146,6 +164,9 @@ class PageController extends Controller
           'email.required' =>'Vui lòng nhập email',
           'email.min'=>'Mật khẩu ít nhất 6 ký tự',
           'email.max'=>'Mật khẩu tối đa  30 ký tự',
+          'address.required'=>'Vui lòng nhập địa chỉ',
+          'phone_number.required'=>'Vui lòng nhập số điện thoại',
+          'phone_number.numeric'=> 'Số điện thoại chỉ bao gồm các số từ 0 đến 9',
           'name.required'=>'Vui lòng nhập họ tên',
           'name.min'=>'Họ tên ít nhât 6 ký tự',
           'name.max'=>'Họ tên tối đa 30 ký tự' ,
@@ -157,6 +178,8 @@ class PageController extends Controller
         ]);
       $user = new User;
       $user->email = $req->email;
+      $user->address = $req->address;
+      $user->phone_number = $req->phone_number;
       $user->name = $req->name;
       $user->role = 0;
       $user->password = bcrypt($req->password);

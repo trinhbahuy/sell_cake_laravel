@@ -57,10 +57,14 @@
               <div class="cart-caption">
                 <div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{ Cart::subtotal(false) }}</span></div>
                 <div class="clearfix"></div>
-
+                 <div class="left">
+                  <div class="space10">&nbsp;</div>
+                  <a href="cart" class="beta-btn primary text-center">Vào Giỏ hàng <i class="fa fa-chevron-right"></i></a>
+                </div>
+              </div>
                 <div class="center">
                   <div class="space10">&nbsp;</div>
-                  <a href="checkout" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
+                  <a href=@if(Auth::check()) "user_checkout" @else "checkout" @endif  class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
                 </div>
               </div>
             </div>
