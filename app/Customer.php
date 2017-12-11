@@ -11,4 +11,5 @@ class Customer extends Model
     public function bill(){
         $this->hasMany('App\Bill','id_customer','id');
     }
+   
 }

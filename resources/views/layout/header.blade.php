@@ -15,6 +15,9 @@
             <li><a href="{{route('login')}}">Đăng nhập</a></li>
         @else
             <li><a href="#"><i class="fa fa-user"></i>{{ Auth::user()->name }}</a></li>
+            <li>
+              <a href="don-hang"><i class="fa fa-gift" aria-hidden="true"></i>Đơn hàng</a>
+            </li>
             <li><a href="logout">Đăng xuất</a></li>
         @endif 
         

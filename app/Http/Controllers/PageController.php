@@ -40,6 +40,17 @@ class PageController extends Controller
                         ->get();
     return view('pages.search',compact('search','count'));
   }
+  public function myBill()
+  {
+    $i = 1;
+    $donhang  = Bill::where('id_user',Auth::user()->id)->get();
+    return view('pages.mybill',compact('donhang','i'));
+  }
+  public function detailsBill($id)
+  {
+    $chitietdon = BillDetails::where('id_bill',$id)->get();
+    return view('pages.detailmybill',compact('chitietdon'));
+  }
   public function sanpham($id){
       $type_sp = ProductType::find($id);
       $sanpham = Product::where('id_type', $id)->get();
@@ -117,6 +128,7 @@ class PageController extends Controller
 
         $bill = new Bill;
         $bill->id_customer = $customer->id;
+        $bill->id_user = Auth::user()->id;
         $bill->date_order = Date('Y-m-d') ;
         $bill->total = (float)Cart::subtotal(false)*1000*9/10;
         $bill->payment = "home";

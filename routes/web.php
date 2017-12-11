@@ -18,6 +18,8 @@ Route::get('about','PageController@about');
 Route::get('contact','PageController@contact');
 Route::get('product/{id}','PageController@product');
 Route::get('details/{id}','PageController@details');
+Route::get('don-hang','PageController@myBill');
+Route::get('chi-tiet-don/{id}','PageController@detailsBill');
 
 Route::get('cart','PageController@cart');
 Route::get('remove/{rowId}','PageController@remove');
