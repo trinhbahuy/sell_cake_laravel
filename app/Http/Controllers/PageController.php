@@ -72,7 +72,8 @@ class PageController extends Controller
 
   public function cart(){
       $content = Cart::content()->groupBy('options->type');
-      $total = Cart::subtotal(false);
+      $total = (float)Cart::subtotal(false)*1000;
+      //var_dump($total);
       // foreach ($content as $item) {
       //   echo print_r($item). "<br>";
       //   foreach ($item as $items) {
@@ -117,7 +118,7 @@ class PageController extends Controller
         $bill = new Bill;
         $bill->id_customer = $customer->id;
         $bill->date_order = Date('Y-m-d') ;
-        $bill->total = Cart::subtotal(false);
+        $bill->total = (float)Cart::subtotal(false)*1000*9/10;
         $bill->payment = "home";
         $bill->save();
     }else{
@@ -131,7 +132,7 @@ class PageController extends Controller
         $bill = new Bill;
         $bill->id_customer = $customer->id;
         $bill->date_order = Date('Y-m-d') ;
-        $bill->total = Cart::subtotal(false);
+        $bill->total = (float)Cart::subtotal(false)*1000;
         $bill->payment = $request->payment_method;
         $bill->save();
     }
@@ -143,6 +144,7 @@ class PageController extends Controller
           $detail->unit_price = $product->price;
           $detail->save();
       }
+      Cart::destroy();
       return redirect('trangchu');
   }
   //////////// REGISTER-LOGIN-LOGOUT /////////

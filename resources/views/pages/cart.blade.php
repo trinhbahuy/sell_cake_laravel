@@ -9,16 +9,16 @@
       <table class="shop_table beta-shopping-cart-table" cellspacing="0">
         <thead>
           <tr>
-            <th class="product-name">Product</th>
-            <th class="product-price">Price</th>
-            <th class="product-quantity">Qty.</th>
-            <th class="product-subtotal">Total</th>
-            <th class="product-remove">Remove</th>
+            <th class="product-name">Sản phẩm</th>
+            <th class="product-price">Giá</th>
+            <th class="product-quantity">Số lượng</th>
+            <th class="product-quantity">Giảm giá</th>
+            <th class="product-subtotal">Tổng tiền</th>
+            <th class="product-remove">Xóa sản phẩm</th>
           </tr>
         </thead>
         <tbody>
         @foreach($content as $item)
-          <tr> <td colspan="4"> hello <td> </tr>
           @foreach($item as $items)
           <tr class="cart_item">
             <td class="product-name">
@@ -32,7 +32,7 @@
             </td>
 
             <td class="product-price">
-              <span class="amount">{{ $items->price }}</span>
+              <span class="amount">{{ $items->price }} VNĐ</span>
             </td>
 
 
@@ -45,7 +45,11 @@
             </td>
 
             <td class="product-subtotal">
-              <span class="amount">{{ $items->qty * $items->price }}</span>
+              <span class="amount">@if(Auth::check()) -10% @else 0% @endif</span>
+            </td>
+
+            <td class="product-subtotal">
+              <span class="amount">@if(Auth::check()) {{ $items->qty * $items->price * 9 /10 }}@else {{ $items->qty * $items->price }} @endif VNĐ</span>
             </td>
 
             <td class="product-remove">
@@ -68,7 +72,7 @@
       <div class="cart-totals pull-right">
         <div class="cart-totals-row"><h5 class="cart-total-title">Cart Totals</h5></div>
 
-        <div class="cart-totals-row"><span>Order Total:</span> <span>{{ $total }}</span></div>
+        <div class="cart-totals-row"><span>Order Total:</span> <span>@if(Auth::check()) {{ $total*9/10 }} @else {{ $total }} @endif VNĐ</span></div>
       </div>
 
       <div class="clearfix"></div>
