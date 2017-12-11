@@ -33,7 +33,7 @@
 	      <tr>
 	        <td>{{$sp->id}}</td>
 	        <td>{{$sp->name}}</td>
-	        <td>{{$sp->id_type}}</td>
+	        <td>{{$sp->productType->name}}</td>
 	        <td><img src="image/product/{{$sp->image}}" width="50px" height="50px"></td>
 	        <td>{{$sp->description}}</td>
 	        <td>{{$sp->unit_price}}</td>
