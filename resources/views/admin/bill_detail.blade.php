@@ -1,8 +1,8 @@
 @extends('admin/master')
 @section('content')
 <div class="col-md-9">
-			<h2>Admin</h2>
-  			<h3>Thông tin cá nhân</h3>
+			<h2>Chi tiết đơn hàng</h2>
+  			<h3>Thông tin</h3>
 		<table class="table table-striped" >
 	    <thead>
 	      <tr>
