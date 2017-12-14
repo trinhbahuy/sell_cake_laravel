@@ -3,8 +3,8 @@
     <div class="container">
       <div class="pull-left auto-width-left">
         <ul class="top-menu menu-beta l-inline">
-          <li><a href="{{route('trangchu')}}"><i class="fa fa-home"></i> đại học BK Hà Nội</a></li>
-          <li><a href="{{route('trangchu')}}"><i class="fa fa-phone"></i> 0969 69 69 69 </a></li>
+          <li><a href="#"><i class="fa fa-home"></i> đại học BK Hà Nội</a></li>
+          <li><a href="#"><i class="fa fa-phone"></i> 0969 69 69 69 </a></li>
         </ul>
       </div>
       <div class="pull-right auto-width-right">
@@ -84,7 +84,7 @@
       <nav class="main-menu">
         <ul class="l-inline ov">
           <li><a href="trangchu">Trang chủ</a></li>
-          <li><a href="{{route('trangchu')}}">Sản phẩm</a>
+          <li><a href="#">Sản phẩm</a>
             <ul class="sub-menu">
               @foreach($loaisanpham as $type)
               <li><a href="sanpham/{{ $type->id }}">{{ $type->name }}</a></li>

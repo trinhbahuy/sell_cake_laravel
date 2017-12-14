@@ -89,8 +89,8 @@
                     </p>
                   </div>
                   <div class="single-item-caption">
-                    <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                    <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+                    <a class="add-to-cart pull-left" href="product/{{ $top->id }}"><i class="fa fa-shopping-cart"></i></a>
+                    <a class="beta-btn primary" href="details/{{ $top->id }}">Chi tiết <i class="fa fa-chevron-right"></i></a>
                     <div class="clearfix"></div>
                   </div>
                 </div>
