@@ -70,9 +70,9 @@
     <div class="cart-collaterals">
 
       <div class="cart-totals pull-right">
-        <div class="cart-totals-row"><h5 class="cart-total-title">Cart Totals</h5></div>
+        <div class="cart-totals-row"><h5 class="cart-total-title">Giỏ Hàng</h5></div>
 
-        <div class="cart-totals-row"><span>Order Total:</span> <span>@if(Auth::check()) {{ $total*9/10 }} @else {{ $total }} @endif VNĐ</span></div>
+        <div class="cart-totals-row"><span>Tổng tiền phải trả:</span> <span>@if(Auth::check()) {{ $total*9/10 }} @else {{ $total }} @endif</span></div>
       </div>
 
       <div class="clearfix"></div>

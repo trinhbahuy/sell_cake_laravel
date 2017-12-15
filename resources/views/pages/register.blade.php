@@ -29,31 +29,31 @@
 						<h4>Đăng kí</h4>
 						<div class="space20">&nbsp;</div>
 						<div class="form-block">
-							<label for="email">Email address*</label>
+							<label for="email">Email*</label>
 							<input type="email" name ="email" id="email" >
 						</div>
 						<div class="form-block">
-							<label for="your_last_name">Name*</label>
+							<label for="your_last_name">Họ tên*</label>
 							<input type="text" name="name" id="name" >
 						</div>
 						<div class="form-block">
-							<label for="your_last_name">Address*</label>
+							<label for="your_last_name">Địa chỉ*</label>
 							<input type="text" name="address"  >
 						</div>
 						<div class="form-block">
-							<label for="your_last_name">Phone Number*</label>
+							<label for="your_last_name">Số điện thoại*</label>
 							<input type="text" name="phone_number" >
 						</div>
 						<div class="form-block">
-							<label >Password*</label>
+							<label >Mật khẩu*</label>
 							<input type="password" name="password" >
 						</div>
 						<div class="form-block">
-							<label >Re password*</label>
+							<label >Nhập lại mật khẩu*</label>
 							<input type="password" name="re_password" >
 						</div>
 						<div class="form-block">
-							<button type="submit" class="btn btn-primary">Register</button>
+							<button type="submit" class="btn btn-primary">Đăng kí</button>
 						</div>
 					</div>
 					<div class="col-sm-3"></div>

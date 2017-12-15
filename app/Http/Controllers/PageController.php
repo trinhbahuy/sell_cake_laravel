@@ -134,6 +134,24 @@ class PageController extends Controller
         $bill->payment = "home";
         $bill->save();
     }else{
+      $this->validate($request,
+        [
+          'email'=>'required|min:6|max:30|email',
+          'address'=>'required',
+          'phone'=>'required|numeric',
+          'name'=>'required|min:6|max:30'
+        ],
+        [
+          'email.required' =>'Vui lòng nhập email',
+          'email.min'=>'Mật khẩu ít nhất 6 ký tự',
+          'email.max'=>'Mật khẩu tối đa  30 ký tự',
+          'address.required'=>'Vui lòng nhập địa chỉ',
+          'phone.required'=>'Vui lòng nhập số điện thoại',
+          'phone.numeric'=> 'Số điện thoại chỉ bao gồm các số từ 0 đến 9',
+          'name.required'=>'Vui lòng nhập họ tên',
+          'name.min'=>'Họ tên ít nhât 6 ký tự',
+          'name.max'=>'Họ tên tối đa 30 ký tự'
+        ]);
         $customer = new Customer;
         $customer->name = $request->name;
         $customer->address = $request->address;
