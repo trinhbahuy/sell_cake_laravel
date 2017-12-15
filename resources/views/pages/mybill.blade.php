@@ -5,7 +5,9 @@
   <div id="content">
     <div class="table-responsive">
       <!-- Shop Products Table -->
-      <h2 style="text-align: center;padding-bottom: 30px;">Danh sách các đơn hàng đã mua</h2>
+      <h2 style="text-align: center;padding-bottom: 30px;">
+        Danh sách các đơn hàng đã mua
+      </h2>
       <table class="shop_table beta-shopping-cart-table" cellspacing="0">
         <thead>
           <tr>

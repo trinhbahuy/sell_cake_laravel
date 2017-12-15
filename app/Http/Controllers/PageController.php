@@ -33,12 +33,12 @@ class PageController extends Controller
                         // ->join('ProductType','ProductType.id','=','Product.id_type')
                         // ->orwhere('ProductType.name','like','%'.$req->search.'%')
                         ->paginate(6);
-    $count  = Product::where('name','like','%'.$req->search.'%')
+    $count = Product::where('name','like','%'.$req->search.'%')
                         ->orwhere('unit_price','like','%'.$req->search.'%')
-                        // ->join('ProductType','ProductType.id','=','Product.id_type')
-                        // ->orwhere('ProductType.name','like','%'.$req->search.'%')
                         ->get();
-    return view('pages.search',compact('search','count'));
+    $key_search = $req->search;
+   
+    return view('pages.search',compact('search','key_search','count'));
   }
   public function myBill()
   {

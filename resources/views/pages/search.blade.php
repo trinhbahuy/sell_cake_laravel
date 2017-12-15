@@ -48,10 +48,13 @@
 										</div>
 									</div>
 								</div>
-							@endforeach
+
+								@endforeach
+								
 							</div>
-							<div class="row">{{$search->links()}}</div>
+							 <div>{{$search->appends(['search'=>$key_search])->links()}}</div> 
 						</div> <!-- .beta-products-list -->
+						
 
 
 							<div class="space40">&nbsp;</div>
