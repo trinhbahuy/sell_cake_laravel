@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('trangchu', 'PageController@trangchu');
+Route::get('trangchu', 'PageController@trangchu')->name('trangchu');
 Route::get('tim-kiem','PageController@search');
 Route::get('sanpham/{id}', 'PageController@sanpham');
 Route::get('about','PageController@about');
